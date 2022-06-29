@@ -1,9 +1,7 @@
 
 AddCSLuaFile()
-AddCSLuaFile( "effects/iotracer.lua" )
+AddCSLuaFile( "effects/io_tracer.lua" )
 AddCSLuaFile( "effects/io_bounce.lua" )
-
-if ( SERVER ) then resource.AddWorkshop( "123277559" ) end
 
 SWEP.Slot = 2
 SWEP.SlotPos = 5
@@ -86,7 +84,7 @@ function SWEP:PrimaryAttack()
 		if ( self.LoopSound ) then
 			self.LoopSound:ChangeVolume( 1, 0.1 )
 		else
-			self.LoopSound = CreateSound( self.Owner, Sound( "weapons/oi/oi_loop.wav" ) )
+			self.LoopSound = CreateSound( self.Owner, Sound( "weapons/io/oi_loop.wav" ) )
 			if ( self.LoopSound ) then self.LoopSound:Play() end
 		end
 		if ( self.BeatSound ) then self.BeatSound:ChangeVolume( 0, 0.1 ) end
@@ -130,7 +128,7 @@ function SWEP:SecondaryAttack()
 	if ( !self:CanSecondaryAttack() ) then return end
 	
 	if ( IsFirstTimePredicted() ) then
-		self:EmitSound( "weapons/oi/beneficios" .. math.random( 1, 2 ) .. ".wav", 100, math.random( 85, 100 ) )
+		self:EmitSound( "weapons/io/beneficios" .. math.random( 1, 2 ) .. ".wav", 100, math.random( 85, 100 ) )
 
 		local bullet = {}
 		bullet.Num = 6
@@ -177,7 +175,7 @@ function SWEP:Reload()
 	self:SendWeaponAnim( ACT_VM_SECONDARYATTACK )
 	self.Owner:SetAnimation( PLAYER_ATTACK1 )
 
-	self:EmitSound( "weapons/oi/beneficios" .. math.random( 1, 2 ) .. ".wav", 100, math.random( 60, 80 ) )
+	self:EmitSound( "weapons/io/beneficios" .. math.random( 1, 2 ) .. ".wav", 100, math.random( 60, 80 ) )
 
 	self:SetNextPrimaryFire( CurTime() + 1 )
 	self:SetNextSecondaryFire( CurTime() + 1 )
@@ -220,7 +218,7 @@ function SWEP:Deploy()
 
 	self:Idle()
 
-	self.BeatSound = CreateSound( self.Owner, Sound( "weapons/oi/oi_beat.wav" ) )
+	self.BeatSound = CreateSound( self.Owner, Sound( "weapons/io/oi_beat.wav" ) )
 	if ( self.BeatSound ) then self.BeatSound:Play() end
 
 	return true
