@@ -40,7 +40,7 @@ function ENT:Initialize()
 	local sw = 16
 	local ew = 0
 	
-	self.Trail = util.SpriteTrail( self, 0, color_white, false, sw, ew, 1, 1 / ( sw + ew ) * 0.5, "oi/rainbow.vmt" )
+	self.Trail = util.SpriteTrail( self, 0, color_white, false, sw, ew, 1, 1 / ( sw + ew ) * 0.5, "oi/noka.vmt" )
 end
 
 function ENT:PhysicsCollide( data, physobj )
